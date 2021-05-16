@@ -5,6 +5,8 @@ struct node {
         node* next;
     };
 class list{
+
+    //а это реализация однонаправленного списка специально для хэш таблицы
 private:
 	node* list_; 
 	node* head;

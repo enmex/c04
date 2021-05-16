@@ -3,7 +3,7 @@
 #include "list.h"
 #include <set>
 using namespace std;
-
+//это доп
 unsigned int HASHFUNC(unsigned int value, int size){
     return (((reinterpret_cast<unsigned int>(value) * 27644437) % (size) ));
 }
@@ -13,16 +13,16 @@ private:
     set<int>::iterator iter;
     int cur_size;
     unsigned int size;
-    list* list_iter;
-    list* keys = nullptr;
-    set<int> setOfKeys;
+    list* list_iter; //итератор по списку
+    list* keys = nullptr; //массив списков
+    set<int> setOfKeys; //множество ключей
 public:
     hashTable(int size) : size(size), cur_size(0){
         keys = new list[size];
     }
     void put(unsigned int value) {
         int position = HASHFUNC(value, size);
-        keys[position].push(value);
+        keys[position].push(value); //просто пихаем элемент в список в конец
         cur_size++;     
         setOfKeys.insert(position);
     }
@@ -80,7 +80,7 @@ public:
         int k = 1;
         start();
         while(!finish()){
-            list_start();//ноль не считаем (т.е 0 и единственное значение = 2)
+            list_start();
             if(getValue().length()>1){
                 cout << k << ". " << hex << *iter << dec << ": ";
                 do{
